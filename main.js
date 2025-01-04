@@ -39,6 +39,7 @@ function formatComments(cf_viewPill) {
 
 		// Create a span element to contain our comment
 		let commentElement = document.createElement("span");
+		commentElement.className = "pinpal_conditionalFormattingCommentSpan";
 		commentElement.innerText = commentText;
 		commentElement.style.maxWidth = "fit-content";
 		commentElement.style.borderRadius = "4px";

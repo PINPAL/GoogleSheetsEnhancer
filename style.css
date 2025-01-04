@@ -1,0 +1,997 @@
+:root {
+	--pinpal-bg-primary: 59, 59, 59;
+	--pinpal-bg-secondary: 49, 49, 49;
+	--pinpal-bg-tertiary: 40, 40, 40;
+	--pinpal-bg-quaternary: 24, 24, 24;
+
+	--pinpal-hover-bg-primary: 74, 74, 74;
+	--pinpal-hover-bg-secondary: 94, 94, 94;
+
+	--pinpal-hover-text-primary: 255, 255, 255;
+
+	--pinpal-text-primary: 185, 185, 185;
+	--pinpal-text-secondary: 150, 150, 150;
+
+	--pinpal-color-add: 41, 204, 95;
+	--pinpal-color-destructive: 212, 71, 70;
+	--pinpal-color-link: 112, 200, 250;
+}
+
+body {
+	background-color: rgb(var(--pinpal-bg-secondary));
+	color: rgb(var(--pinpal-text-primary));
+}
+a {
+	color: rgb(var(--pinpal-color-link));
+}
+::-webkit-scrollbar {
+	height: 16px;
+	overflow: visible;
+	width: 16px;
+	color: rgb(var(--pinpal-text-primary)) !important;
+	background: rgb(var(--pinpal-bg-secondary)) !important;
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+}
+::-webkit-scrollbar-button {
+	height: 0;
+	width: 0;
+	color: rgb(var(--pinpal-text-primary)) !important;
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
+	color: rgb(var(--pinpal-text-primary)) !important;
+	background: rgb(var(--pinpal-bg-secondary)) !important;
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+	color: rgb(var(--pinpal-text-primary)) !important;
+	background-clip: padding-box;
+	border: solid transparent;
+	border-width: 1px 1px 1px 6px;
+	min-height: 28px;
+	padding: 100px 0 0;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+
+	&:hover {
+		background-color: rgb(var(--pinpal-hover-bg-secondary)) !important;
+	}
+}
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+	margin: 0 4px;
+	background-clip: padding-box;
+	border: solid transparent;
+	border-width: 0 0 0 4px;
+	color: rgb(var(--pinpal-text-primary)) !important;
+	background: rgb(var(--pinpal-bg-secondary)) !important;
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+}
+::-webkit-scrollbar-track-piece {
+	border-width: 4px !important;
+	color: rgb(var(--pinpal-text-primary)) !important;
+	background: rgb(var(--pinpal-bg-secondary)) !important;
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+}
+
+/* ================================================
+Context Menu Popouts 
+================================================ */
+.jfk-bubble {
+	background: rgb(var(--pinpal-bg-secondary)) !important;
+	border-radius: 2px;
+	box-shadow: rgba(0, 0, 0, 0.03) 0px -1px 0px inset, rgba(0, 0, 0, 0.2) 0px 0px 3px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.03) 0px -1px 0px inset, rgba(0, 0, 0, 0.2) 0px 0px 3px;
+}
+.goog-menu {
+	background: rgb(var(--pinpal-bg-secondary)) !important;
+
+	/* Menu Item */
+	> .goog-menuitem {
+		color: rgb(var(--pinpal-text-primary)) !important;
+
+		/* Content */
+		> .goog-menuitem-content,
+		> div[class*="scrollable-wrapper"] {
+			color: rgb(var(--pinpal-text-primary)) !important;
+
+			> div[class*="row-content"] > div,
+			.docs-homescreen-leftmenu-menuitem-text,
+			.docs-homescreen-leftmenu-material-menu-header-text {
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+
+			/* Icon 
+            - Ignore .docs-homescreen-leftmenu (homescreen hamburger menu) as those icons are colored 
+            */
+			&:not(.docs-homescreen-leftmenu) .docs-icon,
+            &:not(.docs-homescreen-leftmenu) .docs-homescreen-img,
+            &:not(.docs-homescreen-leftmenu) .goog-menuitem-checkbox:not(:has(.docs-homescreen-ui-slide-switch)),
+            /* Edgecase for Settings Icon */
+            .docs-homescreen-img.docs-homescreen-gear-24 ,
+            /* Edgecase for Help & Feedback Icon */
+            .docs-homescreen-img.docs-homescreen-help-outline-24 {
+				filter: invert(1);
+			}
+
+			/* Slider Switch Checkbox */
+			.docs-homescreen-ui-slide-switch {
+				.docs-homescreen-ui-slide-switch-rail {
+					background-color: rgba(var(--pinpal-text-primary), 0.1) !important;
+					border-color: rgba(0, 0, 0, 0) !important;
+				}
+				.docs-homescreen-ui-slide-switch-knob {
+					background-color: rgb(var(--pinpal-text-primary)) !important;
+					border-color: rgb(var(--pinpal-text-primary)) !important;
+				}
+
+				/* Checked State */
+				&.docs-homescreen-ui-slide-switch-checked {
+					.docs-homescreen-ui-slide-switch-rail {
+						background-color: rgba(var(--pinpal-color-add), 0.25) !important;
+						border-color: rgba(0, 0, 0, 0) !important;
+					}
+					.docs-homescreen-ui-slide-switch-knob {
+						background-color: rgb(var(--pinpal-color-add)) !important;
+						border-color: rgb(var(--pinpal-color-add)) !important;
+					}
+				}
+			}
+
+			/* Submenu Arrow */
+			& > .goog-submenu-arrow {
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+		}
+
+		/* Hover State */
+		&.goog-menuitem-highlight,
+		&:hover {
+			background: rgb(var(--pinpal-hover-bg-primary)) !important;
+
+			/* Content */
+			> .goog-menuitem-content,
+			> div[class*="scrollable-wrapper"] {
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+				> div[class*="row-content"] > div,
+				.docs-homescreen-leftmenu-menuitem-text,
+				.docs-homescreen-leftmenu-material-menu-header-text {
+					color: rgb(var(--pinpal-hover-text-primary)) !important;
+				}
+
+				/* Icon 
+                - Ignore .docs-homescreen-leftmenu (homescreen hamburger menu) as those icons are colored 
+                */
+				&:not(.docs-homescreen-leftmenu) .docs-icon,
+				&:not(.docs-homescreen-leftmenu) .docs-homescreen-img,
+				&:not(.docs-homescreen-leftmenu) .goog-menuitem-checkbox:not(:has(.docs-homescreen-ui-slide-switch)),
+                /* Edgecase for Settings Icon */
+				.docs-homescreen-img.docs-homescreen-gear-24 ,
+                /* Edgecase for Help & Feedback Icon */
+				.docs-homescreen-img.docs-homescreen-help-outline-24 {
+					filter: invert(1) brightness(2);
+				}
+
+				/* Submenu Arrow */
+				& > .goog-submenu-arrow {
+					color: rgb(var(--pinpal-hover-text-primary)) !important;
+				}
+			}
+		}
+	}
+
+	/* Seperator */
+	> .goog-menuseparator {
+		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+	}
+}
+/* Override Menu Popout on Home Page */
+.docs-homescreen-container {
+	.jfk-bubble {
+		background: rgb(var(--pinpal-bg-primary)) !important;
+		.goog-menu {
+			background: rgb(var(--pinpal-bg-primary)) !important;
+		}
+	}
+}
+
+/* ================================================ 
+Modal Popups 
+================================================ */
+.modal-dialog {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.03) 0px -1px 0px inset, rgba(0, 0, 0, 0.15) 0 15px 10px,
+		rgba(0, 0, 0, 0.3) 0 8px 36px !important;
+	box-shadow: rgba(0, 0, 0, 0.03) 0px -1px 0px inset, rgba(0, 0, 0, 0.15) 0 15px 10px, rgba(0, 0, 0, 0.3) 0 8px 36px !important;
+	background-color: rgb(var(--pinpal-bg-primary)) !important;
+
+	/* Close Button */
+	button[aria-label="Close"][class*="close-button"] svg {
+		fill: rgb(var(--pinpal-text-primary)) !important;
+	}
+
+	/* Menu Info */
+	.modal-dialog-title {
+		background-color: inherit !important;
+		color: rgb(var(--pinpal-text-primary)) !important;
+	}
+	.modal-dialog-content {
+		background-color: inherit !important;
+		color: rgb(var(--pinpal-text-secondary)) !important;
+	}
+	.modal-dialog-buttons {
+		button {
+			background: rgb(var(--pinpal-bg-secondary)) !important;
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+			color: rgb(var(--pinpal-text-primary)) !important;
+
+			&[name="moveToTrash"] {
+				background: rgb(var(--pinpal-color-destructive)) !important;
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+				&:hover {
+					background: rgb(var(--pinpal-color-destructive)) !important;
+					-webkit-box-shadow: 0 1px 3px 1px rgba(var(--pinpal-color-destructive), 0.55);
+					box-shadow: 0 1px 3px 1px rgba(var(--pinpal-color-destructive), 0.55);
+				}
+			}
+
+			/* Hover State */
+			&:hover {
+				background: rgb(var(--pinpal-hover-bg-primary)) !important;
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+				border-color: rgba(var(--pinpal-text-primary), 0.35) !important;
+			}
+		}
+	}
+}
+
+/* ================================================
+Home Page (Select a Sheet to Open)
+================================================ */
+
+/* Top Toolbar */
+.docs-homescreen-gb-container header,
+.docs-homescreen-templates-bar {
+	background-color: rgb(var(--pinpal-bg-primary)) !important;
+	color: rgb(var(--pinpal-text-primary)) !important;
+
+	/* Hamburger Menu (Top Left) */
+	div[aria-label="Main menu"][role="button"] svg {
+		fill: rgb(var(--pinpal-text-primary)) !important;
+	}
+	/* Back Button (Top Left) - In Template Mode */
+	.docs-homescreen-templates-bar-back.jfk-button {
+		svg {
+			filter: invert(1);
+		}
+
+		/* Hover State */
+		&.jfk-button-hover,
+		&:hover {
+			background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+
+			svg {
+				filter: invert(1) brightness(2);
+			}
+		}
+	}
+
+	/* Sheets Logo Text (Top Left) */
+	a[aria-label="Sheets"][title="Sheets"] span ,
+    /* Title Text (Template gallery) - In Template Mode */
+    .docs-homescreen-templates-bar-header {
+		color: rgb(var(--pinpal-text-primary)) !important;
+	}
+
+	/* Searchbar (Middle) */
+	form#aso_search_form_anchor {
+		background-color: rgb(var(--pinpal-bg-quaternary)) !important;
+
+		input {
+			color: rgb(var(--pinpal-text-primary)) !important;
+
+			&::placeholder {
+				color: rgb(var(--pinpal-text-secondary)) !important;
+			}
+		}
+
+		/* Buttons (Search Icon / Clear Search) */
+		button svg {
+			fill: rgb(var(--pinpal-text-primary)) !important;
+		}
+	}
+
+	/* Apps Menu (Top Right) */
+	a[aria-label="Google apps"][role="button"] svg {
+		fill: rgb(var(--pinpal-text-primary)) !important;
+	}
+}
+
+/* Floating Header */
+.docs-homescreen-floater-header {
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+	color: rgb(var(--pinpal-text-primary)) !important;
+
+	/* Date Text (Left) */
+	.docs-homescreen-floater-header-title {
+		color: rgb(var(--pinpal-hover-text-primary)) !important;
+	}
+
+	/* Owner Filter Button */
+	.docs-homescreen-owner-filter-button {
+		background-color: rgb(var(--pinpal-bg-primary)) !important;
+		color: rgb(var(--pinpal-text-primary)) !important;
+
+		/* Icons */
+		.docs-homescreen-icon {
+			filter: invert(1);
+		}
+
+		/* Hover State */
+		&.goog-menu-button-hover {
+			background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+			color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+			.docs-homescreen-icon {
+				filter: invert(1) brightness(2);
+			}
+		}
+	}
+
+	/* Right Side Buttons */
+	.docs-homescreen-floater-header-buttons {
+		.jfk-button,
+		.goog-menu-button {
+			background: none !important;
+			color: rgb(var(--pinpal-text-primary)) !important;
+
+			/* Icons */
+			.docs-homescreen-img {
+				filter: invert(1);
+			}
+
+			/* Hover State */
+			&.jfk-button-hover,
+			&.jfk-button-focused,
+			&.goog-flat-menu-button-hover,
+			&.goog-menu-button-focused,
+			&:hover {
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+				&::before {
+					background: rgb(var(--pinpal-hover-bg-primary)) !important;
+				}
+
+				.docs-homescreen-img {
+					filter: invert(1) brightness(2) grayscale(1);
+				}
+			}
+		}
+	}
+}
+/* Floating Header Override (shows up when scrolling Main Container) */
+body > .docs-homescreen-floater-list-header {
+	background-color: rgb(var(--pinpal-bg-primary)) !important;
+	.docs-homescreen-floater-header {
+		background-color: rgb(var(--pinpal-bg-primary)) !important;
+	}
+
+	&.docs-homescreen-floater-header-shadow {
+		-webkit-box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.15);
+	}
+}
+
+/* Main Container */
+.docs-homescreen-container,
+.docs-homescreen-fcc-flex-content-wrapper {
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+}
+.docs-homescreen-container {
+	/* Top Templates List */
+	.docs-homescreen-fcc-content {
+		background-color: rgb(var(--pinpal-bg-tertiary)) !important;
+
+		* {
+			color: rgb(var(--pinpal-text-primary)) !important;
+		}
+
+		/* Options (Top Right) */
+		.docs-hs-tmp-contractedheader-actions {
+			/* Template Gallery Button */
+			.jfk-button {
+				background-color: rgb(var(--pinpal-bg-primary)) !important;
+				color: rgb(var(--pinpal-text-primary)) !important;
+
+				/* Up Down Arrow Button */
+				.docs-homescreen-img {
+					filter: invert(1);
+				}
+
+				/* Hover State */
+				&:hover {
+					background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+					color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+					.docs-homescreen-img {
+						filter: invert(1) brightness(2);
+					}
+				}
+			}
+
+			/* Seperator */
+			div[class*="separator"] {
+				border: none !important;
+			}
+
+			/* Triple Dot Menu (Hide Templates Content Menu) */
+			.goog-menu-button {
+				.docs-homescreen-img {
+					filter: invert(1);
+				}
+
+				/* Hover State */
+				&.goog-menu-button-hover,
+				&:hover {
+					background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+
+					.docs-homescreen-img {
+						filter: invert(1) brightness(2);
+					}
+				}
+			}
+		}
+	}
+
+	/* Main Files List */
+	.docs-homescreen-item-container {
+		/* Date Headers */
+		.docs-homescreen-grid-header,
+		.docs-homescreen-list-header {
+			background-color: rgb(var(--pinpal-bg-secondary)) !important;
+			color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+			* {
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+			}
+		}
+
+		/* List Items (Sheet Files) - LIST VIEW */
+		.docs-homescreen-list-item,
+        /* List Items (Sheet Files) - GRID VIEW */
+        .docs-homescreen-grid-item {
+			background-color: rgb(var(--pinpal-bg-secondary)) !important;
+			color: rgb(var(--pinpal-text-primary)) !important;
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+
+			/* GRID VIEW - Seperator */
+			.docs-homescreen-grid-item-metadata-container {
+				border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+			}
+
+			* {
+				color: rgb(var(--pinpal-text-secondary)) !important;
+			}
+
+			/* More Actions (3 Dot Button) (Right) */
+			.docs-homescreen-item-overflow {
+				background: none !important;
+
+				.docs-homescreen-img {
+					filter: invert(1);
+				}
+
+				/* Hover State */
+				&[aria-expanded="true"],
+				&:hover {
+					background: rgb(var(--pinpal-hover-bg-primary)) !important;
+
+					.docs-homescreen-img {
+						filter: invert(1) brightness(2);
+					}
+				}
+			}
+
+			/* File Name */
+			.docs-homescreen-list-item-title,
+			.docs-homescreen-grid-item-title {
+				* {
+					color: rgb(var(--pinpal-text-primary)) !important;
+				}
+
+				/* Shared/Available Offline Icon */
+				.docs-homescreen-img {
+					filter: invert(1);
+				}
+			}
+
+			/* Shared/Available Offline Icon - GRID VIEW*/
+			.docs-homescreen-grid-metadata-row {
+				.docs-homescreen-item-pinned-icon,
+				.docs-homescreen-grid-item-shared-icon {
+					.docs-homescreen-img {
+						filter: invert(1);
+					}
+				}
+			}
+
+			/* Hover State */
+			&.goog-control-hover {
+				background-color: rgb(var(--pinpal-bg-primary)) !important;
+				outline-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+
+				* {
+					color: rgb(var(--pinpal-text-primary)) !important;
+				}
+
+				/* File Name */
+				.docs-homescreen-list-item-title {
+					* {
+						color: rgb(var(--pinpal-hover-text-primary)) !important;
+					}
+
+					/* Shared Icon */
+					.docs-homescreen-img {
+						filter: invert(1) brightness(2);
+					}
+				}
+			}
+		}
+	}
+}
+
+/* 
+======================================================
+Edit Sheet Page (After opening a Sheet)
+======================================================
+*/
+
+/* Main Container */
+#docs-editor,
+#docs-editor-container {
+	background-color: rgb(var(--pinpal-bg-primary));
+}
+
+/* Top Toolbar */
+#docs-chrome {
+	background: rgb(var(--pinpal-bg-primary)) !important;
+
+	.docs-icon {
+		filter: invert(1);
+	}
+
+	/* Titlebar (File Name/File Action Buttons/Right Buttons (Share/User etc) */
+	#docs-header > #docs-titlebar-container {
+		> #docs-titlebar {
+			/* File Name */
+			.docs-title-widget {
+				.docs-title-input-label {
+					opacity: 0 !important;
+				}
+				input.docs-title-input {
+					color: rgb(var(--pinpal-text-primary)) !important;
+					background: rgb(var(--pinpal-bg-primary)) !important;
+
+					&:focus {
+						background: rgb(var(--pinpal-hover-bg-primary)) !important;
+					}
+				}
+			}
+			/* Icons next to File Name */
+			.docs-titlebar-badge:hover {
+				background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+				div {
+					background: none !important;
+				}
+				.docs-icon {
+					filter: invert(1) brightness(2);
+				}
+			}
+
+			/* Other wildcard text (known to affect "Saved to Drive" when edting file name) */
+			* {
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+
+			/* My Drive (when editing File Name) */
+			.docs-parent-collections-container {
+				background-color: rgb(var(--pinpal-bg-secondary)) !important;
+				border-radius: 4px !important;
+			}
+		}
+
+		/* Right Side Buttons Area (User/Share/Comment etc) */
+		> .docs-titlebar-buttons {
+			background: none !important;
+
+			.jfk-button-hover,
+			jfk-button:hover,
+			.goog-flat-menu-button-hover,
+			.goog-flat-menu-button:hover {
+				background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+				.docs-icon {
+					filter: invert(1) brightness(2);
+				}
+				.goog-flat-menu-button-dropdown {
+					border-color: rgb(var(--pinpal-hover-text-primary)) transparent !important;
+				}
+			}
+
+			/* Dropdown Icons for Buttons */
+			> * > div .goog-flat-menu-button-dropdown {
+				border-color: rgb(var(--pinpal-text-primary)) transparent !important;
+			}
+
+			/* Share Button Override */
+			#docs-titlebar-share-client-button {
+				> div {
+					background: rgb(var(--pinpal-bg-secondary)) !important;
+					color: rgb(var(--pinpal-text-primary)) !important;
+
+					.scb-icon {
+						filter: invert(1) !important;
+					}
+				}
+				#scb-quick-actions-menu-button {
+					border-left-color: rgba(var(--pinpal-text-primary), 0.2);
+				}
+
+				&:hover {
+					> div {
+						background: rgb(var(--pinpal-hover-bg-primary)) !important;
+						color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+						.scb-icon {
+							filter: invert(1) brightness(2) !important;
+						}
+					}
+				}
+			}
+
+			/* Generative AI Button */
+			#docs-sidekick-gen-ai-promo-button-container {
+				svg.appsElementsSidekickEntryPointIcon * {
+					fill: rgb(var(--pinpal-text-primary));
+				}
+			}
+		}
+	}
+
+	/* Main Document Controls (File/View/Edit/Insert & Cell Actions (Text Color/Cell Color/Font etc) */
+	#docs-bars {
+		/* Menu Items (File/View/Edit/Insert etc) */
+		#docs-menubar .menu-button {
+			color: rgb(var(--pinpal-text-primary)) !important;
+
+			/* Hover State */
+			&:hover,
+			&.goog-control-hover {
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+				background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+			}
+
+			/* Menu Open (Expanded) State */
+			&.goog-control-open {
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+				background-color: rgb(var(--pinpal-bg-secondary)) !important;
+			}
+		}
+
+		/* Toolbar Tools (Undo/Redo/Text Color/Cell Color etc) */
+		#docs-toolbar-wrapper {
+			background: rgb(var(--pinpal-bg-secondary)) !important;
+
+			/* Tool Buttons */
+			.goog-toolbar-button,
+            /* Combo Buttons (Tool dropdowns eg: zoom level etc) */
+            .goog-toolbar-combo-button,
+            /* Buttons (Tool dropdowns eg: font/text color/fill color etc) */
+            .goog-toolbar-menu-button {
+				background: rgb(var(--pinpal-bg-primary)) !important;
+				color: rgb(var(--pinpal-text-primary)) !important;
+
+				input {
+					color: rgb(var(--pinpal-text-primary)) !important;
+				}
+			}
+
+			/* Selected Toggleable Toolbar Buttons (eg: Bold ON, Merge Cells ON) */
+			.goog-toolbar-toggle-button.goog-toolbar-button-checked .docs-icon {
+				filter: invert(1) grayscale(1) brightness(2);
+			}
+
+			/* Omnibar (Search Menus) */
+			#docs-omnibox-toolbar input {
+				background: rgb(var(--pinpal-bg-quaternary)) !important;
+
+				&::placeholder {
+					color: rgb(var(--pinpal-text-primary)) !important;
+				}
+			}
+
+			/* Seperators */
+			.goog-toolbar-separator {
+				border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+			}
+		}
+	}
+}
+/* Addtional Top Bars */
+#docs-additional-bars {
+	/* Loading Bar */
+	.progress-bar-horizontal {
+		background-color: rgb(var(--pinpal-bg-primary)) !important;
+
+		.progress-bar-thumb {
+			background-color: rgb(var(--pinpal-color-add)) !important;
+		}
+	}
+	/* Formula Bar */
+	> #formula-bar-container {
+		.formula-bar-separator-container .formula-bar-separator,
+		.formula-bar-with-name-box-wrapper {
+			background-color: rgb(var(--pinpal-bg-primary)) !important;
+
+			/* Cell Selection */
+			.waffle-name-box-container {
+				background-color: rgb(var(--pinpal-bg-secondary)) !important;
+
+				input,
+				#t-name-box-dropdown {
+					color: rgb(var(--pinpal-text-primary)) !important;
+					background-color: rgb(var(--pinpal-bg-secondary)) !important;
+
+					/* Hover State */
+					&:hover {
+						background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+						color: rgb(var(--pinpal-hover-text-primary)) !important;
+					}
+				}
+
+				/* Seperator */
+				.name-box-menu-seperator > div {
+					background-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+				}
+			}
+
+			/* Seperator */
+			.formula-bar-separator > div {
+				background: none !important;
+			}
+
+			/* Formula Input */
+			#formula-bar {
+				background-color: rgb(var(--pinpal-bg-secondary)) !important;
+
+				/* Label before Input */
+				#t-formula-bar-label {
+					color: rgb(var(--pinpal-text-primary)) !important;
+				}
+
+				/* Formula Input */
+				#t-formula-bar-input {
+					background-color: rgb(var(--pinpal-bg-secondary)) !important;
+
+					.cell-input {
+						color: rgb(var(--pinpal-text-primary)) !important;
+						background-color: rgb(var(--pinpal-bg-secondary)) !important;
+
+						.default-formula-text-color {
+							color: rgb(var(--pinpal-text-primary)) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Bottom Toolbar */
+#docs-editor-container > #docs-editor > div[role="navigation"] > .grid-bottom-bar {
+	background-color: rgb(var(--pinpal-bg-primary)) !important;
+	border-color: rgb(var(--pinpal-bg-primary)) !important;
+
+	/* Left Buttons */
+	.docs-sheet-button-bar {
+		.docs-icon {
+			filter: invert(1);
+		}
+
+		.docs-sheet-button-hover,
+		.docs-sheet-button:hover {
+			background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+		}
+	}
+
+	/* Sheet Tabs List */
+	.docs-sheet-container {
+		/* Individual Tab */
+		.docs-sheet-tab {
+			background: none !important;
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+
+			/* Sheet Name */
+			.docs-sheet-tab-name {
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+
+			/* Locked (Protected) Sheet Icon */
+			.docs-icon.docs-sheet-lock-container {
+				filter: invert(1);
+			}
+
+			/* Context Menu Button */
+			.docs-icon.docs-sheet-tab-dropdown {
+				filter: invert(1);
+			}
+
+			/* Active Current (Selected) Tab */
+			&.docs-sheet-active-tab {
+				background: rgb(var(--pinpal-bg-secondary)) !important;
+
+				/* Sheet Name */
+				.docs-sheet-tab-name {
+					color: rgb(var(--pinpal-hover-text-primary)) !important;
+				}
+				/* Locked (Protected) Sheet Icon */
+				.docs-icon.docs-sheet-lock-container {
+					filter: invert(1) grayscale(1) brightness(2);
+				}
+
+				/* Context Menu Button */
+				.docs-icon.docs-sheet-tab-dropdown {
+					filter: invert(1) grayscale(1) brightness(2);
+				}
+			}
+		}
+	}
+}
+
+/* Scrollbars */
+.grid-shim-bottom,
+.grid-shim-right,
+.grid-shim-top,
+.grid-shim-left,
+.grid-shim-end-ltr,
+.grid-shim-end-rtl,
+.column-freezebar-extension,
+.row-freezebar-extension {
+	border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+}
+.native-scrollbar,
+.native-scrollbar::-webkit-scrollbar-corner,
+.native-scrollbar::-webkit-scrollbar-button,
+.native-scrollbar::-webkit-scrollbar-track {
+	color: rgb(var(--pinpal-text-primary)) !important;
+	border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+}
+
+/* Right Apps Toolbar */
+#docs-chrome > .docs-companion-app-switcher-container {
+	background: rgb(var(--pinpal-bg-primary)) !important;
+
+	/* Collapsed Sidebar State */
+	&.docs-companion-app-switcher-container-collapsed {
+		background: none !important;
+
+		/* Open Sidebar Button */
+		.companion-collapser-button-container > .app-switcher-button > .app-switcher-button-icon-background {
+			background: none !important;
+		}
+	}
+
+	/* Toggle Sidebar Button */
+	.companion-collapser-button-container > .app-switcher-button {
+		/* Arrow Icon SVG */
+		.app-switcher-button-icon-container svg.app-switcher-button-icon {
+			fill: rgb(var(--pinpal-text-primary)) !important;
+		}
+		/* Button Background */
+		.app-switcher-button-icon-background {
+			background: rgb(var(--pinpal-bg-secondary)) !important;
+		}
+
+		/* Hover State */
+		&.app-switcher-button-hover,
+		&:hover {
+			.app-switcher-button-icon-background {
+				background: rgb(var(--pinpal-hover-bg-primary)) !important;
+			}
+		}
+	}
+
+	/* App Switcher (Calender/Keep/Tasks/Maps etc) */
+	.companion-guest-app-switcher {
+		/* Seperator */
+		.companion-app-switcher-separator {
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+		}
+
+		/* Buttons (Calender/Keep/Tasks/Maps/Get Add-Ons etc) */
+		.app-switcher-button-hover,
+		.app-switcher-button:hover {
+			> .app-switcher-button-icon-background {
+				background: rgb(var(--pinpal-hover-bg-primary)) !important;
+			}
+			/* Override for later "Add-ons" Button */
+			> .app-switcher-button-icon-container {
+				opacity: 1 !important;
+			}
+		}
+
+		/* Override Get "Add-Ons" Button */
+		> div[aria-label="Get Add-ons"] > .app-switcher-button-icon-container {
+			filter: invert(1);
+			opacity: 0.71;
+		}
+	}
+}
+
+/* Right Sidebar */
+.waffle-sidebar-container {
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+
+	> div {
+		background-color: rgb(var(--pinpal-bg-secondary)) !important;
+	}
+
+	/* Title Bar */
+	> .waffle-sidebar-title {
+		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+
+		/* Title Text */
+		.waffle-sidebar-title-text {
+			color: rgb(var(--pinpal-text-primary)) !important;
+		}
+
+		/* Close Button */
+		.waffle-sidebar-title-close {
+			.docs-icon {
+				filter: invert(1);
+			}
+
+			/* Hover State */
+			&.jfk-button-hover,
+			&:hover {
+				background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+				.docs-icon {
+					filter: invert(1) brightness(2);
+				}
+			}
+		}
+	}
+}
+
+/* Conditional Formatting */
+.waffle-sidebar-container .waffle-sidebar-content {
+	/* Rules */
+	.waffle-conditionalformat-view-pill {
+		background: inherit !important;
+		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+
+		.waffle-conditionalformat-condition {
+			color: rgb(var(--pinpal-text-primary)) !important;
+
+			.pinpal_conditionalFormattingCommentSpan {
+				background-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+			}
+		}
+		.waffle-conditionalformat-range {
+			color: rgb(var(--pinpal-text-secondary)) !important;
+		}
+	}
+
+	/* Add Rule button */
+	.waffle-conditionalformat-add-rule-button {
+		background: inherit !important;
+		color: rgb(var(--pinpal-color-add)) !important;
+	}
+}
