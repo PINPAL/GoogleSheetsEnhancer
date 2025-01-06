@@ -11,6 +11,7 @@
 
 	--pinpal-text-primary: 185, 185, 185;
 	--pinpal-text-secondary: 150, 150, 150;
+	--pinpal-text-tertiary: 117, 117, 117;
 
 	--pinpal-color-add: 41, 204, 95;
 	--pinpal-color-destructive: 212, 71, 70;
@@ -24,58 +25,60 @@ body {
 a {
 	color: rgb(var(--pinpal-color-link));
 }
-::-webkit-scrollbar {
-	height: 16px;
-	overflow: visible;
-	width: 16px;
-	color: rgb(var(--pinpal-text-primary)) !important;
-	background: rgb(var(--pinpal-bg-secondary)) !important;
-	background-color: rgb(var(--pinpal-bg-secondary)) !important;
-}
-::-webkit-scrollbar-button {
-	height: 0;
-	width: 0;
-	color: rgb(var(--pinpal-text-primary)) !important;
-}
-::-webkit-scrollbar-corner {
-	background: transparent;
-	color: rgb(var(--pinpal-text-primary)) !important;
-	background: rgb(var(--pinpal-bg-secondary)) !important;
-	background-color: rgb(var(--pinpal-bg-secondary)) !important;
-}
-::-webkit-scrollbar-thumb {
-	background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
-	color: rgb(var(--pinpal-text-primary)) !important;
-	background-clip: padding-box;
-	border: solid transparent;
-	border-width: 1px 1px 1px 6px;
-	min-height: 28px;
-	padding: 100px 0 0;
-	-webkit-box-shadow: none !important;
-	-moz-box-shadow: none !important;
-	box-shadow: none !important;
-
-	&:hover {
-		background-color: rgb(var(--pinpal-hover-bg-secondary)) !important;
+* {
+	::-webkit-scrollbar {
+		height: 16px;
+		overflow: visible;
+		width: 16px;
+		color: rgb(var(--pinpal-text-primary)) !important;
+		background: rgb(var(--pinpal-bg-secondary)) !important;
+		background-color: rgb(var(--pinpal-bg-secondary)) !important;
 	}
-}
-::-webkit-scrollbar-track {
-	-webkit-box-shadow: none !important;
-	-moz-box-shadow: none !important;
-	box-shadow: none !important;
-	margin: 0 4px;
-	background-clip: padding-box;
-	border: solid transparent;
-	border-width: 0 0 0 4px;
-	color: rgb(var(--pinpal-text-primary)) !important;
-	background: rgb(var(--pinpal-bg-secondary)) !important;
-	background-color: rgb(var(--pinpal-bg-secondary)) !important;
-}
-::-webkit-scrollbar-track-piece {
-	border-width: 4px !important;
-	color: rgb(var(--pinpal-text-primary)) !important;
-	background: rgb(var(--pinpal-bg-secondary)) !important;
-	background-color: rgb(var(--pinpal-bg-secondary)) !important;
+	::-webkit-scrollbar-button {
+		height: 0;
+		width: 0;
+		color: rgb(var(--pinpal-text-primary)) !important;
+	}
+	::-webkit-scrollbar-corner {
+		background: transparent;
+		color: rgb(var(--pinpal-text-primary)) !important;
+		background: rgb(var(--pinpal-bg-secondary)) !important;
+		background-color: rgb(var(--pinpal-bg-secondary)) !important;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+		color: rgb(var(--pinpal-text-primary)) !important;
+		background-clip: padding-box;
+		border: solid transparent;
+		border-width: 1px 1px 1px 6px;
+		min-height: 28px;
+		padding: 100px 0 0;
+		-webkit-box-shadow: none !important;
+		-moz-box-shadow: none !important;
+		box-shadow: none !important;
+
+		&:hover {
+			background-color: rgb(var(--pinpal-hover-bg-secondary)) !important;
+		}
+	}
+	::-webkit-scrollbar-track {
+		-webkit-box-shadow: none !important;
+		-moz-box-shadow: none !important;
+		box-shadow: none !important;
+		margin: 0 4px;
+		background-clip: padding-box;
+		border: solid transparent;
+		border-width: 0 0 0 4px;
+		color: rgb(var(--pinpal-text-primary)) !important;
+		background: rgb(var(--pinpal-bg-secondary)) !important;
+		background-color: rgb(var(--pinpal-bg-secondary)) !important;
+	}
+	::-webkit-scrollbar-track-piece {
+		border-width: 4px !important;
+		color: rgb(var(--pinpal-text-primary)) !important;
+		background: rgb(var(--pinpal-bg-secondary)) !important;
+		background-color: rgb(var(--pinpal-bg-secondary)) !important;
+	}
 }
 
 /* ================================================
@@ -207,21 +210,85 @@ Modal Popups
 	-webkit-box-shadow: rgba(0, 0, 0, 0.03) 0px -1px 0px inset, rgba(0, 0, 0, 0.15) 0 15px 10px,
 		rgba(0, 0, 0, 0.3) 0 8px 36px !important;
 	box-shadow: rgba(0, 0, 0, 0.03) 0px -1px 0px inset, rgba(0, 0, 0, 0.15) 0 15px 10px, rgba(0, 0, 0, 0.3) 0 8px 36px !important;
-	background-color: rgb(var(--pinpal-bg-primary)) !important;
+	background-color: rgb(var(--pinpal-bg-secondary)) !important;
 
 	/* Close Button */
 	button[aria-label="Close"][class*="close-button"] svg {
 		fill: rgb(var(--pinpal-text-primary)) !important;
+	}
+	.modal-dialog-title-close {
+		&::after {
+			filter: invert(1);
+		}
+
+		/* Hover State */
+		&:hover {
+			background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+			opacity: 1 !important;
+
+			&::after {
+				filter: invert(1) brightness(2);
+			}
+		}
 	}
 
 	/* Menu Info */
 	.modal-dialog-title {
 		background-color: inherit !important;
 		color: rgb(var(--pinpal-text-primary)) !important;
+		.modal-dialog-title-text {
+			color: rgb(var(--pinpal-text-primary)) !important;
+		}
 	}
 	.modal-dialog-content {
 		background-color: inherit !important;
 		color: rgb(var(--pinpal-text-secondary)) !important;
+
+		.jfk-textinput,
+		.jfk-button,
+		.goog-button {
+			--pinpal-situational-color: var(--pinpal-text-primary);
+			background: rgb(var(--pinpal-bg-primary)) !important;
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+			color: rgb(var(--pinpal-situational-color)) !important;
+			&::placeholder {
+				color: rgb(var(--pinpal-text-secondary)) !important;
+			}
+
+			&.jfk-button-flat {
+				background: inherit !important;
+				border-color: transparent !important;
+			}
+
+			&[class*="-add-rule-button"],
+			&[class*="-add-another-rule-button"] {
+				--pinpal-situational-color: var(--pinpal-color-add) !important;
+			}
+			&[class*="-delete-all-button"],
+			&[class*="-cancel-button"] {
+				--pinpal-situational-color: var(--pinpal-color-destructive) !important;
+			}
+
+			/* Hover State */
+			&.jfk-textinput-hover,
+			&.jfk-textinput-focused,
+			&.jfk-textinput-focus-within,
+			&.jfk-button-hover,
+			&:hover,
+			&:focus,
+			&:focus-within {
+				--pinpal-situational-color: var(--pinpal-hover-bg-primary);
+				background: rgb(var(--pinpal-situational-color)) !important;
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+				&::placeholder {
+					color: rgb(var(--pinpal-text-primary)) !important;
+				}
+
+				&:not(.jfk-button-flat) {
+					border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+				}
+			}
+		}
 	}
 	.modal-dialog-buttons {
 		button {
@@ -556,16 +623,75 @@ Edit Sheet Page (After opening a Sheet)
 	background-color: rgb(var(--pinpal-bg-primary));
 }
 
-/* Top Toolbar */
-#docs-chrome {
+/* Generic Toolbar (Cell Formatting Options eg: Bold/Italic/Underline/FontSize etc) */
+/* ================================================================================ */
+/* Seperators */
+.goog-toolbar-separator {
+	border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+}
+/* Tool Buttons */
+.goog-toolbar-button,
+/* Combo Buttons (Tool dropdowns eg: zoom level etc) */
+.goog-toolbar-combo-button,
+/* Buttons (Tool dropdowns eg: font/text color/fill color etc) */
+.goog-toolbar-menu-button {
 	background: rgb(var(--pinpal-bg-primary)) !important;
+	color: rgb(var(--pinpal-text-primary)) !important;
 
+	/* Icons */
 	.docs-icon {
 		filter: invert(1);
 	}
 
+	input {
+		color: rgb(var(--pinpal-text-primary)) !important;
+
+		&::placeholder {
+			color: rgb(var(--pinpal-text-secondary)) !important;
+		}
+	}
+
+	/* Selected Toggleable Toolbar Buttons (eg: Bold ON, MergeCells ON */
+	&.goog-toolbar-button-checked {
+		background-color: rgb(var(--pinpal-text-tertiary)) !important;
+
+		.docs-icon {
+			filter: invert(1) grayscale(1) brightness(2);
+		}
+	}
+
+	/* Hover State */
+	&.goog-toolbar-button-hover,
+	&.goog-toolbar-combo-button-hover,
+	&.goog-toolbar-menu-button-hover,
+	&:hover {
+		&:not(&.goog-toolbar-button-checked) {
+			background: rgb(var(--pinpal-hover-bg-primary)) !important;
+			color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+			/* Icons */
+			.docs-icon {
+				filter: invert(1) brightness(2);
+			}
+
+			input {
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+				&::placeholder {
+					color: rgb(var(--pinpal-text-primary)) !important;
+				}
+			}
+		}
+	}
+}
+
+/* Top Toolbar                                                                       */
+/* ================================================================================= */
+#docs-chrome {
+	background: rgb(var(--pinpal-bg-primary)) !important;
+
 	/* Titlebar (File Name/File Action Buttons/Right Buttons (Share/User etc) */
 	#docs-header > #docs-titlebar-container {
+		/* Top Left File Name & File Action Buttons */
 		> #docs-titlebar {
 			/* File Name */
 			.docs-title-widget {
@@ -582,13 +708,20 @@ Edit Sheet Page (After opening a Sheet)
 				}
 			}
 			/* Icons next to File Name */
-			.docs-titlebar-badge:hover {
-				background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
-				div {
-					background: none !important;
-				}
+			.docs-titlebar-badge {
 				.docs-icon {
-					filter: invert(1) brightness(2);
+					filter: invert(1);
+				}
+
+				/* Hover State */
+				&:hover {
+					background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+					div {
+						background: none !important;
+					}
+					.docs-icon {
+						filter: invert(1) brightness(2);
+					}
 				}
 			}
 
@@ -608,24 +741,36 @@ Edit Sheet Page (After opening a Sheet)
 		> .docs-titlebar-buttons {
 			background: none !important;
 
-			.jfk-button-hover,
-			jfk-button:hover,
-			.goog-flat-menu-button-hover,
-			.goog-flat-menu-button:hover {
-				background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
-				color: rgb(var(--pinpal-hover-text-primary)) !important;
-
+			/* Buttons */
+			.jfk-button,
+			.goog-flat-menu-button {
+				/* Icon */
 				.docs-icon {
-					filter: invert(1) brightness(2);
+					filter: invert(1);
 				}
-				.goog-flat-menu-button-dropdown {
-					border-color: rgb(var(--pinpal-hover-text-primary)) transparent !important;
-				}
-			}
 
-			/* Dropdown Icons for Buttons */
-			> * > div .goog-flat-menu-button-dropdown {
-				border-color: rgb(var(--pinpal-text-primary)) transparent !important;
+				/* Dropdown Arrow */
+				.goog-flat-menu-button-dropdown {
+					border-color: rgb(var(--pinpal-text-primary)) transparent !important;
+				}
+
+				/* Hover State */
+				&.jfk-button-hover,
+				&.goog-flat-menu-button-hover,
+				&:hover {
+					background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+					color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+					/* Icon */
+					.docs-icon {
+						filter: invert(1) brightness(2);
+					}
+
+					/* Dropdown Arrow */
+					.goog-flat-menu-button-dropdown {
+						border-color: rgb(var(--pinpal-hover-text-primary)) transparent !important;
+					}
+				}
 			}
 
 			/* Share Button Override */
@@ -663,7 +808,8 @@ Edit Sheet Page (After opening a Sheet)
 		}
 	}
 
-	/* Main Document Controls (File/View/Edit/Insert & Cell Actions (Text Color/Cell Color/Font etc) */
+	/* Main Document Controls (File/View/Edit/Insert 
+    and Cell Actions (Text Color/Cell Color/Font etc) */
 	#docs-bars {
 		/* Menu Items (File/View/Edit/Insert etc) */
 		#docs-menubar .menu-button {
@@ -687,25 +833,6 @@ Edit Sheet Page (After opening a Sheet)
 		#docs-toolbar-wrapper {
 			background: rgb(var(--pinpal-bg-secondary)) !important;
 
-			/* Tool Buttons */
-			.goog-toolbar-button,
-            /* Combo Buttons (Tool dropdowns eg: zoom level etc) */
-            .goog-toolbar-combo-button,
-            /* Buttons (Tool dropdowns eg: font/text color/fill color etc) */
-            .goog-toolbar-menu-button {
-				background: rgb(var(--pinpal-bg-primary)) !important;
-				color: rgb(var(--pinpal-text-primary)) !important;
-
-				input {
-					color: rgb(var(--pinpal-text-primary)) !important;
-				}
-			}
-
-			/* Selected Toggleable Toolbar Buttons (eg: Bold ON, Merge Cells ON) */
-			.goog-toolbar-toggle-button.goog-toolbar-button-checked .docs-icon {
-				filter: invert(1) grayscale(1) brightness(2);
-			}
-
 			/* Omnibar (Search Menus) */
 			#docs-omnibox-toolbar input {
 				background: rgb(var(--pinpal-bg-quaternary)) !important;
@@ -714,15 +841,11 @@ Edit Sheet Page (After opening a Sheet)
 					color: rgb(var(--pinpal-text-primary)) !important;
 				}
 			}
-
-			/* Seperators */
-			.goog-toolbar-separator {
-				border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
-			}
 		}
 	}
 }
-/* Addtional Top Bars */
+/* Addtional Top Bars                                                                */
+/* ================================================================================= */
 #docs-additional-bars {
 	/* Loading Bar */
 	.progress-bar-horizontal {
@@ -772,6 +895,11 @@ Edit Sheet Page (After opening a Sheet)
 				/* Label before Input */
 				#t-formula-bar-label {
 					color: rgb(var(--pinpal-text-primary)) !important;
+
+					/* "FX" Icon */
+					.docs-icon {
+						filter: invert(1);
+					}
 				}
 
 				/* Formula Input */
@@ -792,7 +920,8 @@ Edit Sheet Page (After opening a Sheet)
 	}
 }
 
-/* Bottom Toolbar */
+/* Bottom Toolbar                                                                    */
+/* ================================================================================= */
 #docs-editor-container > #docs-editor > div[role="navigation"] > .grid-bottom-bar {
 	background-color: rgb(var(--pinpal-bg-primary)) !important;
 	border-color: rgb(var(--pinpal-bg-primary)) !important;
@@ -853,7 +982,8 @@ Edit Sheet Page (After opening a Sheet)
 	}
 }
 
-/* Scrollbars */
+/* Main Editor Scrollbars                                                            */
+/* ================================================================================= */
 .grid-shim-bottom,
 .grid-shim-right,
 .grid-shim-top,
@@ -873,7 +1003,8 @@ Edit Sheet Page (After opening a Sheet)
 	border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
 }
 
-/* Right Apps Toolbar */
+/* Right Apps Toolbar                                                                */
+/* ================================================================================= */
 #docs-chrome > .docs-companion-app-switcher-container {
 	background: rgb(var(--pinpal-bg-primary)) !important;
 
@@ -934,7 +1065,8 @@ Edit Sheet Page (After opening a Sheet)
 	}
 }
 
-/* Right Sidebar */
+/* Right Sidebar                                                                     */
+/* ================================================================================= */
 .waffle-sidebar-container {
 	background-color: rgb(var(--pinpal-bg-secondary)) !important;
 
@@ -967,16 +1099,103 @@ Edit Sheet Page (After opening a Sheet)
 			}
 		}
 	}
+
+	/* Toggle Tabs (Pill Selector) 
+    (Scoped using ConditionalFormatting Edit Individual Rule Page) */
+	.docs-sidebar-toggle-tabs {
+		background-color: rgb(var(--pinpal-bg-secondary)) !important;
+
+		/* Active (Selected) Tab */
+		.jfk-button.docs-sidebar-toggle-tab-active {
+			color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+			/* Line Below Tab name */
+			> div::after {
+				border-color: rgb(var(--pinpal-hover-text-primary)) !important;
+			}
+		}
+		/* Inactive Tab */
+		.jfk-button.docs-sidebar-toggle-tab-inactive {
+			color: rgb(var(--pinpal-text-secondary)) !important;
+
+			/* Hover State */
+			&.jfk-button-hover,
+			&:hover {
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+		}
+	}
+
+	/* Seperator & Button Container (Scoped using DataValidation Edit Rules (Overview of all rules) Page) */
+	div[class*="waffle-"][class*="-button-bar"] {
+		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+	}
+
+	/* Other Buttons in List View (Scoped using DataValidation Edit Rules (Overview of all rules) Page) */
+	div[class*="waffle-"][class*="-button-bar"] .docs-material-button,
+	/* Other Buttons (Scoped using ConditionalFormatting "Add Another Rule" */
+	.jfk-button {
+		--pinpal-situational-color: var(--pinpal-text-primary);
+		background: rgb(var(--pinpal-bg-primary)) !important;
+		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+		color: rgb(var(--pinpal-situational-color)) !important;
+
+		&.jfk-button-flat {
+			background: inherit !important;
+			border-color: transparent !important;
+		}
+
+		&[class*="-add-rule-button"],
+		&[class*="-add-another-rule-button"] {
+			--pinpal-situational-color: var(--pinpal-color-add) !important;
+		}
+		&[class*="-delete-all-button"],
+		&[class*="-cancel-button"] {
+			--pinpal-situational-color: var(--pinpal-color-destructive) !important;
+		}
+
+		/* Hover State */
+		&.docs-material-button-hover,
+		&.jfk-button-hover,
+		&:hover {
+			--pinpal-situational-color: var(--pinpal-hover-bg-primary);
+			background: rgb(var(--pinpal-situational-color)) !important;
+			color: rgb(var(--pinpal-hover-text-primary)) !important;
+
+			&:not(.jfk-button-flat) {
+				border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+			}
+		}
+	}
 }
 
-/* Conditional Formatting */
+/* Conditional Formatting, Data Validation, Named Ranges
+& potentially more "waffle rule lists" style UI                                      */
+/* ================================================================================= */
 .waffle-sidebar-container .waffle-sidebar-content {
-	/* Rules */
-	.waffle-conditionalformat-view-pill {
-		background: inherit !important;
+	/* Rules List Page (Overview of all Rules) */
+	div[class*=" waffle-"][class*="-view-pill "],
+	div[class*=" waffle-"][class$="-view-pill"],
+	div[class^="waffle-"][class*="-view-pill "],
+	div[class^="waffle-"][class$="-view-pill"],
+	div[class*=" waffle-"][class*="-ranges-pill "],
+	div[class*=" waffle-"][class$="-ranges-pill"],
+	div[class^="waffle-"][class*="-ranges-pill "],
+	div[class^="waffle-"][class$="-ranges-pill"] {
+		background-color: inherit !important;
 		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
 
-		.waffle-conditionalformat-condition {
+		/* Selected Rule */
+		&[class*=" waffle-"][class*="-edit-pill "],
+		&[class*=" waffle-"][class$="-edit-pill"],
+		&[class^="waffle-"][class*="-edit-pill "],
+		&[class^="waffle-"][class$="-edit-pill"] {
+			background-color: rgb(var(--pinpal-bg-primary)) !important;
+		}
+
+		/* Condition/Formula Title */
+		div[class*="waffle-"][class$="-condition"],
+		div[class*="waffle-"][class*="-condition "] {
 			color: rgb(var(--pinpal-text-primary)) !important;
 
 			.pinpal_conditionalFormattingCommentSpan {
@@ -984,14 +1203,193 @@ Edit Sheet Page (After opening a Sheet)
 				color: rgb(var(--pinpal-hover-text-primary)) !important;
 			}
 		}
-		.waffle-conditionalformat-range {
+		/* Cell Range */
+		div[class*="waffle-"][class$="-range"],
+		div[class*="waffle-"][class*="-range "] {
 			color: rgb(var(--pinpal-text-secondary)) !important;
+		}
+		/* Per Rule Delete Button */
+		div[class*="waffle-"][class*="-delete-button-holder "],
+		div[class*="waffle-"][class$="-delete-button-holder"],
+		div[class*="waffle-"][class*="-delete-button-wrapper "],
+		div[class*="waffle-"][class$="-delete-button-wrapper"] {
+			display: flex !important;
+			&.goog-inline-block {
+				display: inline-flex !important;
+			}
+			align-items: center;
+
+			div[class*="waffle-"][class*="-delete-"] {
+				box-sizing: border-box;
+				padding: 4px;
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				.docs-icon {
+					filter: invert(1);
+				}
+
+				/* Hover State */
+				.jfk-button-hover,
+				&:hover {
+					background-color: rgb(var(--pinpal-color-destructive)) !important;
+
+					.docs-icon {
+						filter: invert(1) brightness(2);
+					}
+				}
+			}
 		}
 	}
 
-	/* Add Rule button */
-	.waffle-conditionalformat-add-rule-button {
-		background: inherit !important;
-		color: rgb(var(--pinpal-color-add)) !important;
+	/* Edit Page (for an individual rule) */
+	div[class*=" waffle-"][class*="-edit-pill "],
+	div[class*=" waffle-"][class$="-edit-pill"],
+	div[class^="waffle-"][class*="-edit-pill "],
+	div[class^="waffle-"][class$="-edit-pill"] {
+		/* Section Header */
+		div[class*="waffle-"][class*="-edit-pill-section-header"] {
+			color: rgb(var(--pinpal-text-primary)) !important;
+		}
+		/* Section Label */
+		div[class*="waffle-"][class*="-edit-pill-section-label"] {
+			color: rgb(var(--pinpal-text-secondary)) !important;
+		}
+		/* Inputs */
+		.waffle-range-selection-container,
+		.jfk-textinput,
+		.jfk-select {
+			background: rgb(var(--pinpal-bg-primary)) !important;
+			color: rgb(var(--pinpal-text-primary)) !important;
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+			* {
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+
+			&::placeholder,
+			input::placeholder {
+				color: rgb(var(--pinpal-text-tertiary)) !important;
+			}
+
+			/* Cell Range Selection Button */
+			.waffle-range-selection-button .docs-icon,
+			/* Select Dropdown Arrow */
+			.goog-flat-menu-button-dropdown,
+			.goog-menu-button-dropdown {
+				filter: invert(1);
+			}
+
+			/* Hover State */
+			&:hover,
+			&:focus,
+			&:focus-within {
+				background: rgb(var(--pinpal-hover-bg-primary)) !important;
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+				* {
+					color: rgb(var(--pinpal-hover-text-primary)) !important;
+				}
+				&::placeholder,
+				input::placeholder {
+					color: rgb(var(--pinpal-text-secondary)) !important;
+				}
+				/* Cell Range Selection Button */
+				.waffle-range-selection-button .docs-icon,
+                /* Select Dropdown Arrow */
+                .goog-flat-menu-button-dropdown,
+                .goog-menu-button-dropdown {
+					filter: invert(1) brightness(2);
+				}
+			}
+		}
+
+		/* Formatting Options (Scoped Using ConditionalFormatting) */
+		.waffle-conditionalformat-custom-toolbar,
+		#waffle-conditionalformat-boolean-format-button {
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+
+			&.waffle-conditionalformat-custom-toolbar {
+				background: rgb(var(--pinpal-bg-secondary)) !important;
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+		}
+	}
+}
+
+/* Named Range Context Menu                                                          */
+/* ================================================================================= */
+.waffle-named-box-menu {
+	/* Named Range List */
+	.waffle-named-box-menu-scrollable-wrapper {
+		/* Individual Item */
+		.waffle-ac-named-range-row {
+			/* Icon */
+			.waffle-named-range-autocomplete-row-icon-container {
+				margin-top: auto;
+				margin-bottom: auto;
+				.docs-icon {
+					filter: invert(1);
+				}
+			}
+			/* Content */
+			.waffle-named-range-autocomplete-row-content {
+				.waffle-function-autocomplete-row-name {
+					color: rgb(var(--pinpal-text-primary)) !important;
+					display: flex;
+					align-items: center;
+				}
+				waffle-function-autocomplete-row-description {
+					color: rgb(var(--pinpal-text-secondary)) !important;
+				}
+			}
+
+			/* Hover State */
+			&.waffle-name-box-menu-item-active,
+			&:hover {
+				background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+				/* Icon */
+				.waffle-named-range-autocomplete-row-icon-container .docs-icon {
+					filter: invert(1) brightness(2);
+				}
+				/* Content */
+				.waffle-named-range-autocomplete-row-content {
+					.waffle-function-autocomplete-row-name {
+						color: rgb(var(--pinpal-hover-text-primary)) !important;
+					}
+					waffle-function-autocomplete-row-description {
+						color: rgb(var(--pinpal-text-primary)) !important;
+					}
+				}
+			}
+		}
+	}
+	/* Seperator */
+	.waffle-name-box-menu-open-sidebar-button-separator {
+		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+	}
+	/* Open Sidebar Button at bottom */
+	.waffle-named-box-menu-open-sidebar-button {
+		background-color: inherit !important;
+		.waffle-name-box-menu-open-sidebar-button-title {
+			color: rgb(var(--pinpal-text-primary)) !important;
+		}
+		.waffle-name-box-menu-open-sidebar-button-subtext {
+			color: rgb(var(--pinpal-text-secondary)) !important;
+		}
+
+		/* Hover State */
+		.waffle-named-box-menu-open-sidebar-button-hover,
+		&:hover {
+			background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
+			.waffle-name-box-menu-open-sidebar-button-title {
+				color: rgb(var(--pinpal-hover-text-primary)) !important;
+			}
+			.waffle-name-box-menu-open-sidebar-button-subtext {
+				color: rgb(var(--pinpal-text-primary)) !important;
+			}
+		}
 	}
 }

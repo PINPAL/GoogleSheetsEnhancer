@@ -188,7 +188,8 @@ function modifyEditPage(cf_editPill) {
 	// Insert the fake input just after the original input
 	cf_formulaInput.parentElement.appendChild(fakeFormulaInput);
 	// Hide the original input
-	conditionalformat_custom_formula_input.style.display = "none";
+	cf_formulaInput.style.backgroundColor = "red !important";
+	cf_formulaInput.style.display = "none";
 }
 
 // Function to update the formula input with the new formula
