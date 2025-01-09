@@ -4,12 +4,16 @@
 
 /**
  * Function to format the names of files that contain "MASTER COPY" in the name.
- * @param {Element} docsHomescreenListItemTitle The parent element that contains the file name (docs-homescreen-list-item-title-value).
+ * @param {Element} docsHomescreenListItem The parent element that contains the file name (docs-homescreen-list-item-title-value).
  */
-function formatFileName(docsHomescreenListItemTitle) {
+function formatFileName(docsHomescreenListItem) {
 	// Add a class to our element so we can find it in future searches
-	docsHomescreenListItemTitle.classList.add("pinpal_masterCopy");
-	// Find the child element that contains the file name
+	docsHomescreenListItem.classList.add("pinpal_masterCopy");
+	// Find the child element that contains the file details
+	const docsHomescreenListItemTitle = docsHomescreenListItem.getElementsByClassName(
+		"docs-homescreen-list-item-title"
+	)[0];
+	// Find the element within docsHomescreenListItemTitle that contains the file name
 	const docsHomescreenListItemTitleValue = docsHomescreenListItemTitle.getElementsByClassName(
 		"docs-homescreen-list-item-title-value"
 	)[0];
@@ -53,12 +57,8 @@ let OBSERVER_docsHomescreenListItem = new MutationObserver(function (mutations) 
 					addedNode.classList.contains("docs-homescreen-list-item") &&
 					!addedNode.classList.contains("pinpal_masterCopy")
 				) {
-					// Get the parent element that contains the file name
-					const docsHomescreenListItemTitle = addedNode.getElementsByClassName(
-						"docs-homescreen-list-item-title"
-					)[0];
 					// Perform the formatting of the file name
-					formatFileName(docsHomescreenListItemTitle);
+					formatFileName(addedNode);
 				}
 			});
 		}
