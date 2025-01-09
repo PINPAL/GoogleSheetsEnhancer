@@ -569,6 +569,11 @@ body > .docs-homescreen-floater-list-header {
 				* {
 					color: rgb(var(--pinpal-text-primary)) !important;
 				}
+				/* Custom MASTER COPY Indicator */
+				.pinpal_masterCopySpan {
+					background-color: #a09c97 !important; /* Match Icon Color */
+					color: rgb(var(--pinpal-bg-secondary)) !important; /* Match Background Color */
+				}
 
 				/* Shared/Available Offline Icon */
 				.docs-homescreen-img {
@@ -599,6 +604,11 @@ body > .docs-homescreen-floater-list-header {
 				.docs-homescreen-list-item-title {
 					* {
 						color: rgb(var(--pinpal-hover-text-primary)) !important;
+					}
+					/* Custom MASTER COPY Indicator */
+					.pinpal_masterCopySpan {
+						background-color: rgb(var(--pinpal-hover-text-primary)) !important; /* Match Icon Color */
+						color: rgb(var(--pinpal-bg-primary)) !important; /* Match Background Color */
 					}
 
 					/* Shared Icon */
