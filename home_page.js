@@ -1,5 +1,6 @@
 // ACTIVATE ON:
-//  - https://docs.google.com/spreadsheets/u/*  (Google Sheets - Home (Open Files))
+//  - https://docs.google.com/spreadsheets/u/*
+// Google Sheets - Home (Open Files)
 
 /**
  * Function to format the names of files that contain "MASTER COPY" in the name.

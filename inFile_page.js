@@ -1,5 +1,6 @@
 // ACTIVATE ON:
-//  - https://docs.google.com/spreadsheets/d/* (Google Sheets - Individual File - Editing a Sheet)
+//  - https://docs.google.com/spreadsheets/d/*
+// Google Sheets - Individual File (Editing a Sheet)
 
 /**
  * Function to format the comments in Google Sheets conditional formatting rules.
