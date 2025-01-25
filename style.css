@@ -82,6 +82,137 @@ a {
 }
 
 /* ================================================
+Generic Buttons
+================================================ */
+/* Buttons & Text Inputs */
+.jfk-textinput,
+.goog-button,
+.goog-button-flat,
+.jfk-button,
+.jfk-button-flat,
+.goog-menu-button,
+.goog-flat-menu-button,
+/* Modal Specific Buttons (they don't have a class) */
+.modal-dialog-buttons button {
+	--pinpal-situational-color: var(--pinpal-text-primary);
+	background: rgb(var(--pinpal-bg-primary)) !important;
+	border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+	color: rgb(var(--pinpal-situational-color)) !important;
+
+	/* Disabled Button */
+	&[disabled] {
+		opacity: 0.3 !important;
+		cursor: not-allowed !important;
+	}
+
+	/* Inner Content */
+	*,
+  /* Dropdown Options */
+  .goog-flat-menu-button-caption,
+  .goog-menu-button-caption {
+		color: rgb(var(--pinpal-text-primary)) !important;
+	}
+
+	/* Input Placeholder */
+	&::placeholder {
+		color: rgb(var(--pinpal-text-secondary)) !important;
+	}
+
+	&.jfk-button-flat {
+		background: inherit !important;
+		border-color: transparent !important;
+	}
+
+	/* Icon */
+	.docs-icon {
+		filter: invert(1);
+	}
+
+	/* Dropdown Arrow */
+	.goog-flat-menu-button-dropdown {
+		border-color: rgb(var(--pinpal-text-primary)) transparent !important;
+		filter: invert(1);
+	}
+
+	/* Add Button */
+	&[class*="-add-rule-button"],
+	&[class*="-add-another-rule-button"],
+	&.goog-buttonset-action {
+		--pinpal-situational-color: var(--pinpal-color-add) !important;
+	}
+	/* Destructive Button */
+	&[class*="-delete-all-button"],
+	&[class*="-cancel-button"] {
+		--pinpal-situational-color: var(--pinpal-color-destructive) !important;
+	}
+
+	/* Hover State */
+	&.jfk-textinput-hover,
+	&.jfk-textinput-focused,
+	&.jfk-textinput-focus-within,
+	&:hover,
+	&:focus,
+	&:focus-within,
+	&.jfk-button-hover,
+	&.goog-button-hover,
+	&.goog-flat-button-hover,
+	&.goog-menu-button-hover,
+	&.goog-flat-menu-button-hover,
+	&:hover {
+		--pinpal-situational-color: var(--pinpal-hover-bg-primary);
+		background: rgb(var(--pinpal-situational-color)) !important;
+		color: rgb(var(--pinpal-hover-text-primary)) !important;
+		&::placeholder {
+			color: rgb(var(--pinpal-text-primary)) !important;
+		}
+		&:not(.jfk-button-flat),
+		&:not(.goog-button-flat),
+		&:not(.goog-flat-menu-button) {
+			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+		}
+
+		/* Icon */
+		.docs-icon {
+			filter: invert(1) brightness(2);
+		}
+
+		/* Dropdown Arrow */
+		.goog-flat-menu-button-dropdown {
+			border-color: rgb(var(--pinpal-hover-text-primary)) transparent !important;
+			filter: invert(1) brightness(2);
+		}
+	}
+}
+/* ================================================
+Generic Checkboxes & Radio Buttons
+================================================ */
+/* Checkbox Container */
+.docs-material-gm-labeled-checkbox {
+	/* Checkbox itself */
+	.docs-material-gm-labeled-checkbox-checkbox {
+		border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
+		color: rgb(var(--pinpal-text-primary)) !important;
+
+		/* Checked State */
+		&.docs-material-gm-labeled-checkbox-checked {
+			background-color: rgb(var(--pinpal-color-add)) !important;
+			border-color: rgb(var(--pinpal-color-add)) !important;
+		}
+	}
+
+	/* Hover State */
+	&:hover,
+	&.docs-material-gm-labeled-checkbox-hover,
+	&.docs-material-gm-labeled-checkbox-focused {
+		/* Circle that surrounds checkbox when hovered */
+		.docs-material-gm-labeled-checkbox-circle {
+			background-color: rgb(var(--pinpal-hover-text-primary)) !important;
+			opacity: 0.04 !important;
+		}
+	}
+}
+
+/* ================================================
 Context Menu Popouts 
 ================================================ */
 .jfk-bubble {
@@ -92,6 +223,9 @@ Context Menu Popouts
 }
 .goog-menu {
 	background: rgb(var(--pinpal-bg-secondary)) !important;
+	box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+		0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075) !important;
+	border: 1px solid rgba(var(--pinpal-text-primary), 0.2) !important;
 
 	/* Menu Item */
 	> .goog-menuitem {
@@ -151,9 +285,22 @@ Context Menu Popouts
 			}
 		}
 
+		/* Disabled Item */
+		&.goog-menuitem-disabled {
+			/* Content */
+			.goog-menuitem-content {
+				/* Item Label */
+				.goog-menuitem-label ,
+        /* Submenu Arrow */
+        .goog-submenu-arrow {
+					opacity: 0.3 !important;
+				}
+			}
+		}
+
 		/* Hover State */
-		&.goog-menuitem-highlight,
-		&:hover {
+		&.goog-menuitem-highlight:not(.goog-menuitem-disabled),
+		&:hover:not(.goog-menuitem-disabled) {
 			background: rgb(var(--pinpal-hover-bg-primary)) !important;
 
 			/* Content */
@@ -244,75 +391,8 @@ Modal Popups
 		background-color: inherit !important;
 		color: rgb(var(--pinpal-text-secondary)) !important;
 
-		.jfk-textinput,
-		.jfk-button,
-		.goog-button {
-			--pinpal-situational-color: var(--pinpal-text-primary);
-			background: rgb(var(--pinpal-bg-primary)) !important;
-			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
-			color: rgb(var(--pinpal-situational-color)) !important;
-			&::placeholder {
-				color: rgb(var(--pinpal-text-secondary)) !important;
-			}
-
-			&.jfk-button-flat {
-				background: inherit !important;
-				border-color: transparent !important;
-			}
-
-			&[class*="-add-rule-button"],
-			&[class*="-add-another-rule-button"] {
-				--pinpal-situational-color: var(--pinpal-color-add) !important;
-			}
-			&[class*="-delete-all-button"],
-			&[class*="-cancel-button"] {
-				--pinpal-situational-color: var(--pinpal-color-destructive) !important;
-			}
-
-			/* Hover State */
-			&.jfk-textinput-hover,
-			&.jfk-textinput-focused,
-			&.jfk-textinput-focus-within,
-			&.jfk-button-hover,
-			&:hover,
-			&:focus,
-			&:focus-within {
-				--pinpal-situational-color: var(--pinpal-hover-bg-primary);
-				background: rgb(var(--pinpal-situational-color)) !important;
-				color: rgb(var(--pinpal-hover-text-primary)) !important;
-				&::placeholder {
-					color: rgb(var(--pinpal-text-primary)) !important;
-				}
-
-				&:not(.jfk-button-flat) {
-					border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
-				}
-			}
-		}
-	}
-	.modal-dialog-buttons {
-		button {
-			background: rgb(var(--pinpal-bg-secondary)) !important;
-			border-color: rgba(var(--pinpal-text-primary), 0.2) !important;
-			color: rgb(var(--pinpal-text-primary)) !important;
-
-			&[name="moveToTrash"] {
-				background: rgb(var(--pinpal-color-destructive)) !important;
-				color: rgb(var(--pinpal-hover-text-primary)) !important;
-
-				&:hover {
-					background: rgb(var(--pinpal-color-destructive)) !important;
-					-webkit-box-shadow: 0 1px 3px 1px rgba(var(--pinpal-color-destructive), 0.55);
-					box-shadow: 0 1px 3px 1px rgba(var(--pinpal-color-destructive), 0.55);
-				}
-			}
-
-			/* Hover State */
-			&:hover {
-				background: rgb(var(--pinpal-hover-bg-primary)) !important;
-				color: rgb(var(--pinpal-hover-text-primary)) !important;
-				border-color: rgba(var(--pinpal-text-primary), 0.35) !important;
-			}
+		* {
+			color: rgb(var(--pinpal-text-secondary));
 		}
 	}
 }
@@ -750,38 +830,6 @@ Edit Sheet Page (After opening a Sheet)
 		/* Right Side Buttons Area (User/Share/Comment etc) */
 		> .docs-titlebar-buttons {
 			background: none !important;
-
-			/* Buttons */
-			.jfk-button,
-			.goog-flat-menu-button {
-				/* Icon */
-				.docs-icon {
-					filter: invert(1);
-				}
-
-				/* Dropdown Arrow */
-				.goog-flat-menu-button-dropdown {
-					border-color: rgb(var(--pinpal-text-primary)) transparent !important;
-				}
-
-				/* Hover State */
-				&.jfk-button-hover,
-				&.goog-flat-menu-button-hover,
-				&:hover {
-					background-color: rgb(var(--pinpal-hover-bg-primary)) !important;
-					color: rgb(var(--pinpal-hover-text-primary)) !important;
-
-					/* Icon */
-					.docs-icon {
-						filter: invert(1) brightness(2);
-					}
-
-					/* Dropdown Arrow */
-					.goog-flat-menu-button-dropdown {
-						border-color: rgb(var(--pinpal-hover-text-primary)) transparent !important;
-					}
-				}
-			}
 
 			/* Share Button Override */
 			#docs-titlebar-share-client-button {
